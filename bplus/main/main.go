@@ -1,11 +1,23 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
+	"crypto/rand"
 	"fmt"
+	"log"
+	"os"
 
 	"github.com/cagnosolutions/bplus"
 )
+
+func makeBytes(n int) []byte {
+	b := make([]byte, 10)
+	if _, err := rand.Read(b); err != nil {
+		log.Fatal(err)
+	}
+	return b
+}
 
 func cmp(a, b []byte) int {
 	return bytes.Compare(a, b)
@@ -17,9 +29,9 @@ func main() {
 	defer bpt.Close()
 
 	bpt.Set([]byte("foo"), []byte("bar"))
-	bpt.Set([]byte("baz"), []byte("nar"))
-	bpt.Set([]byte("zap"), []byte("rad"))
+	fmt.Println("Tree size:", bpt.Len())
 
-	ret, ok := bpt.Get([]byte("baz"))
-	fmt.Printf("%s (%v)\n", ret, ok)
+	fmt.Print("\n\nPress any key to continue...")
+	bufio.NewReader(os.Stdin).ReadBytes('\n')
+
 }
