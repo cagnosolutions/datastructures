@@ -10,4 +10,4 @@
 * sharded hashmap which performs better under concurrent load
  
 ### realdb
-* production quality key/val/document database backed by disk, atomic persistence using aof
+* production quality in memory k/v/doc database backed by disk, atomic persistence using aof
