@@ -3,6 +3,9 @@
 ### bplus
 * b+tree using []byte for keys and values
 
+### index
+* b+tree using int64 for keys, and []byte for values (use as atomic uinx timestamp pk index)
+
 ### mockdb
 * basic embedded key/val store backed by disk snapshots, used for testing or prototyping
 
